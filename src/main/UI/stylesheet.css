@@ -1,0 +1,22 @@
+.homepage {
+    height: 100%;
+    width: 100%;
+}
+
+.homebgcover {
+    background-image: url("https://images.unsplash.com/photo-1501612780327-45045538702b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80");
+    height: 800px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 75%;
+    margin: 0;
+    padding: 0;
+}
+
+button .homebutton {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-color: white;
+    text-align: center;
+    font-family: "Roboto Thin", sans-serif;
+    position: center;
+}
