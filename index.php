@@ -11,7 +11,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 // Validate username
 if(empty(trim($_POST["username"]))){
-$username_err = "Please enter a username.";
+$username_err = "please enter a username :)";
 } else{
 // Prepare a select statement
 $sql = "SELECT ID FROM account WHERE username = :username";
@@ -56,7 +56,7 @@ $confirm_password_err = "please confirm password";
 } else{
 $confirm_password = trim($_POST["confirm_password"]);
 if(empty($password_err) && ($password != $confirm_password)){
-$confirm_password_err = "oh no! passwords do not match.";
+$confirm_password_err = "oh no! passwords do not match";
 }
 }
 
@@ -97,11 +97,11 @@ unset($conn);
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Theory // Sign Up</title>
+    <title>theory // signup</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        body{ font: 14px 'Courier New'; }
-        .wrapper{ width: 350px; padding: 20px; }
+        body{ font: 20px 'Courier New'; }
+        .wrapper{ width: 500px; padding: 20px; }
     </style>
 </head>
 <body>
@@ -127,7 +127,7 @@ unset($conn);
             <input type="submit" class="btn btn-primary" value="submit">
             <input type="reset" class="btn btn-secondary ml-2" value="reset">
         </div>
-        <p>already have an account? <a href="login.php">login here</a>.</p>
+        <p>already have an account? <a href="login.php">login here</a>!</p>
     </form>
 </div>
 </body>
