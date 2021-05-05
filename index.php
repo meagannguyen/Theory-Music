@@ -100,7 +100,6 @@ unset($conn);
     <title>Theory // Sign Up</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        html { background-color: pink;}
         body{ font: 14px 'Courier New'; }
         .wrapper{ width: 350px; padding: 20px; }
     </style>
@@ -125,8 +124,8 @@ unset($conn);
             <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
         </div>
         <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="submit" style="color: black">
-            <input type="reset" class="btn btn-secondary ml-2" value="reset" style="color: grey">
+            <input type="submit" class="btn btn-primary" value="submit">
+            <input type="reset" class="btn btn-secondary ml-2" value="reset">
         </div>
         <p>already have an account? <a href="login.php">login here</a>.</p>
     </form>
