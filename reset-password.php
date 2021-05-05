@@ -9,7 +9,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 }
 
 // Include config file
-//require_once "config.php";
+require_once "connection.php";
 
 // Define variables and initialize with empty values
 $new_password = $confirm_password = "";
@@ -42,26 +42,28 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         // Prepare an update statement
         $sql = "UPDATE users SET password = ? WHERE id = ?";
 
-        if($stmt = mysqli_prepare($link, $sql)){
-            // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "si", $param_password, $param_id);
+        if (!empty($link)) {
+            if($stmt = mysqli_prepare($link, $sql)){
+                // Bind variables to the prepared statement as parameters
+                mysqli_stmt_bind_param($stmt, "si", $param_password, $param_id);
 
-            // Set parameters
-            $param_password = password_hash($new_password, PASSWORD_DEFAULT);
-            $param_id = $_SESSION["id"];
+                // Set parameters
+                $param_password = password_hash($new_password, PASSWORD_DEFAULT);
+                $param_id = $_SESSION["id"];
 
-            // Attempt to execute the prepared statement
-            if(mysqli_stmt_execute($stmt)){
-                // Password updated successfully. Destroy the session, and redirect to login page
-                session_destroy();
-                header("location: login.php");
-                exit();
-            } else{
-                echo "oops! something went wrong...please try again later";
+                // Attempt to execute the prepared statement
+                if(mysqli_stmt_execute($stmt)){
+                    // Password updated successfully. Destroy the session, and redirect to login page
+                    session_destroy();
+                    header("location: login.php");
+                    exit();
+                } else{
+                    echo "oops! something went wrong...please try again later";
+                }
+
+                // Close statement
+                mysqli_stmt_close($stmt);
             }
-
-            // Close statement
-            mysqli_stmt_close($stmt);
         }
     }
 
