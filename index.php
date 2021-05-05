@@ -1,10 +1,9 @@
 <?php
-?>
 
 /* include "connection.php"; */
 
 // Define variables and initialize with empty values
-/* $username = $password = $confirm_password = "";
+$username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";
 
 // Processing form data when form is submitted
@@ -134,4 +133,3 @@ unset($conn);
 </div>
 </body>
 </html>
-*/
