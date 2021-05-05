@@ -1,6 +1,6 @@
 <?php
 
-/* include "connection.php"; */
+include "connection.php";
 
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = "";
@@ -14,7 +14,7 @@ if(empty(trim($_POST["username"]))){
 $username_err = "please enter a username :)";
 } else{
 // Prepare a select statement
-$sql = "SELECT ID FROM account WHERE username = :username";
+$sql = "SELECT * FROM account WHERE 'username' = :username";
 
 if (isset($conn)) {
 if($stmt = $conn->prepare($sql)){
