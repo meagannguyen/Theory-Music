@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 ini_set('display_errors'. 1);
 
 $servername = 'localhost';
-$username = "acano";
+$username = "nguyenm26";
 $password = "V00873715";
 $database = "project_nguyenm26";
 
