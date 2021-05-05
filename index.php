@@ -27,12 +27,12 @@ $param_username = trim($_POST["username"]);
 // Attempt to execute the prepared statement
 if($stmt->execute()){
 if($stmt->rowCount() == 1){
-$username_err = "This username is already taken.";
+$username_err = "this username is already taken :(";
 } else{
 $username = trim($_POST["username"]);
 }
 } else{
-echo "Oops! Something went wrong. Please try again later.";
+echo "oops! something went wrong...please try again later";
 }
 
 // Close statement
@@ -43,20 +43,20 @@ unset($stmt);
 
 // Validate password
 if(empty(trim($_POST["password"]))){
-$password_err = "Please enter a password.";
+$password_err = "please enter a password :)";
 } elseif(strlen(trim($_POST["password"])) < 6){
-$password_err = "Password must have at least 6 characters.";
+$password_err = "password must have at least 6 characters";
 } else{
 $password = trim($_POST["password"]);
 }
 
 // Validate confirm password
 if(empty(trim($_POST["confirm_password"]))){
-$confirm_password_err = "Please confirm password.";
+$confirm_password_err = "please confirm password";
 } else{
 $confirm_password = trim($_POST["confirm_password"]);
 if(empty($password_err) && ($password != $confirm_password)){
-$confirm_password_err = "Password did not match.";
+$confirm_password_err = "oh no! passwords do not match.";
 }
 }
 
@@ -80,7 +80,7 @@ if($stmt->execute()){
 // Redirect to login page
 header("location: login.php");
 } else{
-echo "Oops! Something went wrong. Please try again later.";
+echo "oops! something went wrong...please try again later";
 }
 
 // Close statement
