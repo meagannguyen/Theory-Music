@@ -9,7 +9,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 }
 
 // Include config file
-require_once "connection.php";
+//require_once "connection.php";
 
 // Define variables and initialize with empty values
 $username = $password = "";
@@ -84,7 +84,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 
     // Close connection
-    unset($pdo);
+    unset($conn);
 }
 ?>
 
