@@ -24,7 +24,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <a href="welcome.php" class="btn btn-warning">home</a>
     <a href="albums.php" class="btn btn-info">albums</a>
     <a href="artists.php" class="btn btn-info">artists</a>
-    <a href="genres.php" class="btn btn-info">genres</a>
     <a href="playlists.php" class="btn btn-info">playlists</a>
     <a href="songs.php" class="btn btn-info">songs</a>
     <a href="logout.php" class="btn btn-danger">sign out</a>
