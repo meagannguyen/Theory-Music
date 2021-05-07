@@ -8,7 +8,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="background-color: pink">
 <head>
     <meta charset="UTF-8">
     <title>theory // home</title>
