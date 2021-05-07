@@ -13,22 +13,22 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Welcome</title>
+    <title>theory // home</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body{ font: 20px 'Courier New'; text-align: center; }
     </style>
 </head>
 <body>
-<h1 class="my-5">hi, <b><?php echo htmlspecialchars($_SESSION["first_name"]); ?></b>!</h1>
-<h2>what are you in the mood for?</h2>
+<h1 class="my-5">hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>!</h1>
+<h2>select one of the following:</h2>
 <p>
     <a href="albums.php" class="btn btn-outline-info">albums</a>
     <a href="artists.php" class="btn btn-outline-info">artists</a>
     <a href="genres.php" class="btn btn-outline-info">genres</a>
     <a href="playlists.php" class="btn btn-outline-info">playlists</a>
     <a href="songs.php" class="btn btn-outline-info">songs</a>
-    <a href="logout.php" class="btn btn-danger ml-3">sign out</a>
+    <a href="logout.php" class="btn btn-danger ml-10">sign out</a>
 </p>
 </body>
 </html>
