@@ -24,15 +24,15 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <a href="welcome.php" class="btn btn-warning">home</a>
     <div class="container">
         <div class="row">
-            <div class="col-lg">
+            <div class="col-sm">
                 <img src="https://images-na.ssl-images-amazon.com/images/I/71BKhn%2BOYRL._SL1425_.jpg">
                 fun. // some nights
             </div>
-            <div class="col-lg">
+            <div class="col-sm">
                 <img src="https://images-na.ssl-images-amazon.com/images/I/61Oz6VUs1fL.jpg">
                 green day // greatest hits: god's favorite band
             </div>
-            <div class="col-lg">
+            <div class="col-sm">
                 <img src="https://static.qobuz.com/images/covers/02/05/0073145240502_600.jpg">
                 the cranberries // no need to argue
             </div>
