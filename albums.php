@@ -36,7 +36,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             </div>
             <div class="col-sm">
                 <img src="images/no%20need%20to%20argue%20album.jpg">
-                <a href="artists.php">    the cranberries</a>
+                <a href="artists.php">the cranberries</a>
                 // no need to argue
             </div>
         </div>
@@ -53,7 +53,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             </div>
             <div class="col-sm">
                 <img src="images/bee%20gees%20greatest.jpg">
-                <a href="artists.php">    bee gees</a>
+                <a href="artists.php">bee gees</a>
                 // bee gees' greatest
             </div>
         </div>

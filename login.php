@@ -1,5 +1,4 @@
 <?php
-// Initialize the session
 session_start();
 
 // Check if the user is already logged in, if yes then redirect them to welcome page
@@ -10,11 +9,10 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 
 require_once "connection.php";
 
-// Define variables and initialize with empty values
 $username = $password = "";
 $username_err = $password_err = $login_err = "";
 
-// Processing form data when form is submitted
+
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     // Check if username is empty
@@ -33,17 +31,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     // Validate credentials
     if(empty($username_err) && empty($password_err)){
-        // Prepare a select statement
+        // Prepared statement
         $sql = "SELECT id, username, user_password FROM account WHERE username = :username";
 
         if (isset($conn)) {
             if($stmt = $conn->prepare($sql)){
                 // Bind variables to the prepared statement as parameters
                 $stmt->bindParam(":username", $param_username, PDO::PARAM_STR);
-
-                // Set parameters
                 $param_username = trim($_POST["username"]);
-
                 // Attempt to execute the prepared statement
                 if($stmt->execute()){
                     // Check if username exists, if yes then verify password

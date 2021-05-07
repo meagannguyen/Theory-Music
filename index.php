@@ -2,7 +2,6 @@
 
 include "connection.php";
 
-// Define variables and initialize with empty values
 $first_name= $last_name = $email = $phone_number = $username = $password = $confirm_password = $payment = $birthday = $billing_address = "";
 $first_name_err = $last_name_err = $email_err = $phone_number_err = $username_err = $password_err = $confirm_password_err = $payment_err = $birthday_err = $billing_address_err = "";
 
@@ -11,7 +10,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty(trim($_POST["username"]))) {
         $username_err = "please enter a username :)";
     } else {
-        // Prepare a select statement
+        // Prepared statement
         $sql = "SELECT 'ID' FROM account WHERE 'username' = :username";
 
         if (isset($conn)) {
@@ -164,7 +163,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 $param_birthday = $birthday;
                 $param_billing_address = $billing_address;
 
-// Attempt to execute the prepared statement
+                // Attempt to execute the prepared statement
                 if ($stmt->execute()) {
                     // Redirect to login page
                     header("location: login.php");
