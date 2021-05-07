@@ -217,7 +217,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <div class="form-group">
             <label>birthday</label>
-            <input type="text" name="birthday" class="form-control <?php echo (!empty($birthday_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $birthday; ?>">
+            <input type="date" name="birthday" class="form-control <?php echo (!empty($birthday_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $birthday; ?>">
             <span class="invalid-feedback"><?php echo $birthday; ?></span>
         </div>
         <div class="form-group">
@@ -227,12 +227,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <div class="form-group">
             <label>password</label>
-            <input type="text" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
+            <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
             <span class="invalid-feedback"><?php echo $password_err; ?></span>
         </div>
         <div class="form-group">
             <label>confirm password</label>
-            <input type="text" name="confirm_password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
+            <input type="password" name="confirm_password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
             <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
         </div>
         <div class="form-group">
