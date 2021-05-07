@@ -53,7 +53,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $id = $row["id"];
                             $username = $row["username"];
                             $hashed_password = $row["password"];
-                            if(password_verify($password, $hashed_password)){
+                            //if(password_verify($password, $hashed_password)){
                                 // Password is correct, so start a new session
                                 session_start();
 
@@ -64,10 +64,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                                 // Redirect user to welcome page
                                 header("location: welcome.php");
-                            } else{
+                            /*} else{
                                 // Password is not valid, display a generic error message
                                 $login_err = "invalid username or password :(";
-                            }
+                            }*/
                         }
                     } else{
                         // Username doesn't exist, display a generic error message
@@ -121,7 +121,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <span class="invalid-feedback"><?php echo $password_err; ?></span>
         </div>
         <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="login"<a href="welcome.php"></a>>
+            <input type="submit" class="btn btn-primary" value="login">
         </div>
         <p>don't have an account? <a href="index.php">signup here</a>!</p>
     </form>
