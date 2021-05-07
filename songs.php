@@ -26,13 +26,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <div class="col">
             <img src="images/some%20nights.jpg">
             <br>
-            <h2>we are young</h2>
+            <h2>we are young <img src="images/play%20button.jpg"></h2>
+            <br>
             04:10
             <br>
             <a href="artists.php">fun.</a>
             // <a href="albums.php"> some nights</a>
-            <br>
-            <img src="images/play%20button.jpg">
         </div>
         <div class="col">
             <img src="images/gods%20favorite%20band.jpg">
