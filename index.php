@@ -7,15 +7,15 @@ $first_name= $last_name = $email = $phone_number = $username = $password = $conf
 $first_name_err = $last_name_err = $email_err = $phone_number_err = $username_err = $password_err = $confirm_password_err = $payment_err = $birthday_err = $billing_address_err = "";
 
 // Processing form data when form is submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-    if(empty(trim($_POST["username"]))){
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (empty(trim($_POST["username"]))) {
         $username_err = "please enter a username :)";
-    } else{
+    } else {
         // Prepare a select statement
         $sql = "SELECT 'ID' FROM account WHERE 'username' = :username";
 
         if (isset($conn)) {
-            if($stmt = $conn->prepare($sql)){
+            if ($stmt = $conn->prepare($sql)) {
                 // Bind variables to the prepared statement as parameters
                 $stmt->bindParam(":username", $param_username, PDO::PARAM_STR);
 
@@ -23,13 +23,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 $param_username = trim($_POST["username"]);
 
                 // Attempt to execute the prepared statement
-                if($stmt->execute()){
-                    if($stmt->rowCount() == 1){
+                if ($stmt->execute()) {
+                    if ($stmt->rowCount() == 1) {
                         $username_err = "this username is already taken :(";
-                    } else{
+                    } else {
                         $username = trim($_POST["username"]);
                     }
-                } else{
+                } else {
                     echo "oops! something went wrong...please try again later";
                 }
 
@@ -40,150 +40,148 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 
     // Validate first name
-    if(empty(trim($_POST["first name"]))){
+    if (empty(trim($_POST["first name"]))) {
         $first_name_err = "please enter your first name :)";
-    } else{
+    } else {
         $first_name = trim($_POST["first name"]);
     }
 
     // Validate last name
-    if(empty(trim($_POST["last name"]))){
+    if (empty(trim($_POST["last name"]))) {
         $last_name_err = "please enter your last name :)";
-    } else{
+    } else {
         $last_name = trim($_POST["last name"]);
     }
 
     // Validate email
     $sql = "SELECT 'ID' FROM account WHERE 'email' = :email";
-    if(empty(trim($_POST["email address"]))){
+    if (empty(trim($_POST["email address"]))) {
         $email_err = "please enter an email address :)";
-    }
-    elseif (!str_contains(trim($_POST["email address"]), '@')){
+    } elseif (!str_contains(trim($_POST["email address"]), '@')) {
         $email_err = "please enter a valid email address";
-    }
-    elseif (!str_contains(trim($_POST["email address"]), '.')) {
+    } elseif (!str_contains(trim($_POST["email address"]), '.')) {
         $email_err = "please enter a valid email address";
-    }
-    // if there is a duplicate email address
-    else {
-        if($stmt = $conn->prepare($sql)){
-            $stmt->bindParam(":email", $param_email, PDO::PARAM_STR);
-            $param_email = trim($_POST["email"]);
-            if($stmt->execute()){
-                if($stmt->rowCount() == 1){
-                    $email_err = "this email is already being used :(";
-                } else{
-                    $email = trim($_POST["email"]);
-                }
-            } else{
-                echo "oops! something went wrong...please try again later";
-            }
-    }
-
-    // Validate phone number
-    $sql = "SELECT 'ID' FROM account WHERE 'phone_number' = :phone_number";
-    if(empty(trim($_POST["phone number"]))){
-        $phone_number_err = "please enter a phone number";
-    }
+    } // if there is a duplicate email address
     else {
         if ($stmt = $conn->prepare($sql)) {
-            $stmt->bindParam(":phone", $param_phone_number, PDO::PARAM_STR);
-            $param_phone_number = trim($_POST["phone number"]);
+            $stmt->bindParam(":email", $param_email, PDO::PARAM_STR);
+            $param_email = trim($_POST["email"]);
             if ($stmt->execute()) {
                 if ($stmt->rowCount() == 1) {
-                    $phone_number_err = "this phone number is already being used :(";
+                    $email_err = "this email is already being used :(";
                 } else {
-                    $phone_number = trim($_POST["phone number"]);
+                    $email = trim($_POST["email"]);
                 }
             } else {
                 echo "oops! something went wrong...please try again later";
             }
         }
-    }
 
-    // Validate password
-    if(empty(trim($_POST["password"]))){
-        $password_err = "please enter a password :)";
-    } elseif(strlen(trim($_POST["password"])) < 4){
-        $password_err = "password must have at least 4 characters";
-    } else{
-        $password = trim($_POST["password"]);
-    }
-
-    // Validate confirm password
-    if(empty(trim($_POST["confirm_password"]))){
-        $confirm_password_err = "please confirm password";
-    } else{
-        $confirm_password = trim($_POST["confirm_password"]);
-        if(empty($password_err) && ($password != $confirm_password)){
-            $confirm_password_err = "oh no! passwords do not match";
+        // Validate phone number
+        $sql = "SELECT 'ID' FROM account WHERE 'phone_number' = :phone_number";
+        if (empty(trim($_POST["phone number"]))) {
+            $phone_number_err = "please enter a phone number";
+        } else {
+            if ($stmt = $conn->prepare($sql)) {
+                $stmt->bindParam(":phone", $param_phone_number, PDO::PARAM_STR);
+                $param_phone_number = trim($_POST["phone number"]);
+                if ($stmt->execute()) {
+                    if ($stmt->rowCount() == 1) {
+                        $phone_number_err = "this phone number is already being used :(";
+                    } else {
+                        $phone_number = trim($_POST["phone number"]);
+                    }
+                } else {
+                    echo "oops! something went wrong...please try again later";
+                }
+            }
         }
-    }
 
-    // Validate birthday
-    if(empty(trim($_POST["birthday"]))){
-        $birthday_err = "please enter your birthday :)";
-    } else{
-        $birthday = trim($_POST["birthday"]);
-    }
+        // Validate password
+        if (empty(trim($_POST["password"]))) {
+            $password_err = "please enter a password :)";
+        } elseif (strlen(trim($_POST["password"])) < 4) {
+            $password_err = "password must have at least 4 characters";
+        } else {
+            $password = trim($_POST["password"]);
+        }
 
-    // Validate payment
-    if(empty(trim($_POST["payment"]))){
-        $last_name_err = "please enter your payment option :)";
-    } else{
-        $last_name = trim($_POST["payment"]);
-    }
+        // Validate confirm password
+        if (empty(trim($_POST["confirm_password"]))) {
+            $confirm_password_err = "please confirm password";
+        } else {
+            $confirm_password = trim($_POST["confirm_password"]);
+            if (empty($password_err) && ($password != $confirm_password)) {
+                $confirm_password_err = "oh no! passwords do not match";
+            }
+        }
 
-    // Validate billing address
-    if(empty(trim($_POST["billing address"]))){
-        $last_name_err = "please enter your billing address :)";
-    } else{
-        $last_name = trim($_POST["billing address"]);
-    }
+        // Validate birthday
+        if (empty(trim($_POST["birthday"]))) {
+            $birthday_err = "please enter your birthday :)";
+        } else {
+            $birthday = trim($_POST["birthday"]);
+        }
 
-    // Check input errors before inserting in database
-    if(empty($first_name_err) && empty($last_name_err) && empty($email_err) && empty($phone_number_err) && empty($username_err) && empty($password_err) && empty($confirm_password_err) && empty($birthday_err) && empty($payment_err) && empty($billing_address_err)){
-        // Prepare an insert statement
-        $sql = "INSERT INTO account (first_name, last_name, email, phone_number, username, password, birthday, payment, billing_address) VALUES (:first_name, :last_name, :email, :phone_number, :username, :password, :birthday, :payment, :billing_address)";
+        // Validate payment
+        if (empty(trim($_POST["payment"]))) {
+            $last_name_err = "please enter your payment option :)";
+        } else {
+            $last_name = trim($_POST["payment"]);
+        }
 
-        if($stmt = $conn->prepare($sql)){
-            // Bind variables to the prepared statement as parameters
-            $stmt->bindParam(":first_name", $param_first_name, PDO::PARAM_STR);
-            $stmt->bindParam(":last_name", $param_last_name, PDO::PARAM_STR);
-            $stmt->bindParam(":email", $param_email, PDO::PARAM_STR);
-            $stmt->bindParam(":phone_number", $param_phone_number, PDO::PARAM_INT);
-            $stmt->bindParam(":username", $param_username, PDO::PARAM_STR);
-            $stmt->bindParam(":password", $param_password, PDO::PARAM_STR);
-            $stmt->bindParam(":birthday", $param_birthday, PDO::PARAM_DATE);
-            $stmt->bindParam(":payment", $param_payment, PDO::PARAM_STR);
-            $stmt->bindParam(":billing_address", $param_billing_address, PDO::PARAM_STR);
+        // Validate billing address
+        if (empty(trim($_POST["billing address"]))) {
+            $last_name_err = "please enter your billing address :)";
+        } else {
+            $last_name = trim($_POST["billing address"]);
+        }
 
-            // Set parameters
-            $param_first_name = $first_name;
-            $param_last_name = $last_name;
-            $param_email = $email;
-            $param_phone_number = $phone_number;
-            $param_username = $username;
-            $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
-            $param_birthday = $birthday;
-            $param_billing_address = $billing_address;
+        // Check input errors before inserting in database
+        if (empty($first_name_err) && empty($last_name_err) && empty($email_err) && empty($phone_number_err) && empty($username_err) && empty($password_err) && empty($confirm_password_err) && empty($birthday_err) && empty($payment_err) && empty($billing_address_err)) {
+            // Prepare an insert statement
+            $sql = "INSERT INTO account (first_name, last_name, email, phone_number, username, password, birthday, payment, billing_address) VALUES (:first_name, :last_name, :email, :phone_number, :username, :password, :birthday, :payment, :billing_address)";
+
+            if ($stmt = $conn->prepare($sql)) {
+                // Bind variables to the prepared statement as parameters
+                $stmt->bindParam(":first_name", $param_first_name, PDO::PARAM_STR);
+                $stmt->bindParam(":last_name", $param_last_name, PDO::PARAM_STR);
+                $stmt->bindParam(":email", $param_email, PDO::PARAM_STR);
+                $stmt->bindParam(":phone_number", $param_phone_number, PDO::PARAM_INT);
+                $stmt->bindParam(":username", $param_username, PDO::PARAM_STR);
+                $stmt->bindParam(":password", $param_password, PDO::PARAM_STR);
+                $stmt->bindParam(":birthday", $param_birthday, PDO::PARAM_DATE);
+                $stmt->bindParam(":payment", $param_payment, PDO::PARAM_STR);
+                $stmt->bindParam(":billing_address", $param_billing_address, PDO::PARAM_STR);
+
+                // Set parameters
+                $param_first_name = $first_name;
+                $param_last_name = $last_name;
+                $param_email = $email;
+                $param_phone_number = $phone_number;
+                $param_username = $username;
+                $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
+                $param_birthday = $birthday;
+                $param_billing_address = $billing_address;
 
 // Attempt to execute the prepared statement
-if($stmt->execute()){
-    // Redirect to login page
-    header("location: login.php");
-}else{
-    echo "oops! something went wrong...please try again later";
-}
-    unset($stmt);
+                if ($stmt->execute()) {
+                    // Redirect to login page
+                    header("location: login.php");
+                } else {
+                    echo "oops! something went wrong...please try again later";
+                }
+                unset($stmt);
+            }
         }
+        // Close connection
+        unset($conn);
     }
-    // Close connection
-    unset($conn);
 }
 ?>
 
 <!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>theory // signup</title>
