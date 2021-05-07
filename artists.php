@@ -40,6 +40,37 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                 Events:
                 <a href="events.php">Fun. Tour</a>
             </div>
+            <div class="col">
+                coldplay
+                <br>
+                <img src="images/coldplay.jpg">
+                <br>
+                United Kingdom
+                <br>
+                37,013,125 followers
+                <br>
+                Parlophone
+                <br>
+                Albums:
+                <a href="albums.php">a rush of blood to the head</a>
+            </div>
+            <div class="col">
+                green day
+                <br>
+                <img src="images/green%20day.jpg">
+                <br>
+                United States
+                <br>
+                18,807,100 followers
+                <br>
+                Reprise Records
+                <br>
+                Albums:
+                <a href="albums.php">green day: god's favorite band</a>
+                <br>
+                Events:
+                <a href="events.php">American Idiot World Tour</a>
+            </div>
         </div>
     </div>
 </p>
