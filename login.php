@@ -3,10 +3,10 @@
 session_start();
 
 // Check if the user is already logged in, if yes then redirect them to welcome page
-/* if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     header("location: welcome.php");
     exit;
-} */
+}
 
 // Include config file
 require_once "connection.php";
@@ -121,7 +121,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <span class="invalid-feedback"><?php echo $password_err; ?></span>
         </div>
         <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="login">
+            <input type="submit" class="btn btn-primary" value="login"<a href="welcome.php"></a>>
         </div>
         <p>don't have an account? <a href="index.php">signup here</a>!</p>
     </form>
