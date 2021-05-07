@@ -27,7 +27,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <img src="images/some%20nights.jpg">
             <br>
             <h2>we are young <img src="images/play.jpg"></h2>
-            <br>
             04:10
             <br>
             <a href="artists.php">fun.</a>
