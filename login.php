@@ -83,7 +83,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 ?>
 
 <!DOCTYPE html>
-<html lang="en" style="background-color: pink">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>theory // login</title>

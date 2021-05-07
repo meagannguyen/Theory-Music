@@ -9,7 +9,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 ?>
 
 <!DOCTYPE html>
-<html lang="en" style="background-color: pink">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>theory // albums</title>
