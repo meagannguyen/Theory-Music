@@ -21,12 +21,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <h1 class="my-5">welcome, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>!</h1>
 <h2>select one of the following:</h2>
 <p>
-    <a href="welcome.php" class="btn btn-light">home</a>
-    <a href="albums.php" class="btn btn-info">albums</a>
-    <a href="artists.php" class="btn btn-info">artists</a>
-    <a href="playlists.php" class="btn btn-info">playlists</a>
-    <a href="songs.php" class="btn btn-info">songs</a>
-    <a href="logout.php" class="btn btn-danger">sign out</a>
+    <a href="welcome.php" class="btn btn-light btn-lg btn-block">home</a>
+    <a href="albums.php" class="btn btn-outline-info btn-lg btn-block">albums</a>
+    <a href="artists.php" class="btn btn-outline-info btn-lg btn-block">artists</a>
+    <a href="playlists.php" class="btn btn-outline-info btn-lg btn-block">playlists</a>
+    <a href="songs.php" class="btn btn-outline-info btn-lg btn-block">songs</a>
+    <a href="logout.php" class="btn btn-light btn-lg btn-block">sign out</a>
 </p>
 </body>
 </html>
