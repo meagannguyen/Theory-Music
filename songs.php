@@ -31,6 +31,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <br>
             <a href="artists.php">fun.</a>
             // <a href="albums.php"> some nights</a>
+            <br>
+            <img src="images/play%20button.jpg">
         </div>
         <div class="col">
             <img src="images/gods%20favorite%20band.jpg">
@@ -40,6 +42,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <br>
             <a href="artists.php">green day</a>
             // <a href="albums.php"> green day: god's favorite band </a>
+            <br>
+            <img src="images/play%20button.jpg">
         </div>
         <div class="col">
             <img src="images/no%20need%20to%20argue%20album.jpg">
@@ -49,6 +53,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <br>
             <a href="artists.php">the cranberries</a>
             // <a href="albums.php"> no need to argue</a>
+            <br>
+            <img src="images/play%20button.jpg">
         </div>
     </div>
     <div class="row">
@@ -60,6 +66,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <br>
             <a href="artists.php">creed bratton</a>
             // <a href="albums.php"> coarsegold</a>
+            <br>
+            <img src="images/play%20button.jpg">
         </div>
         <div class="col">
             <img src="images/a%20rush%20of%20blood%20to%20the%20head.jpg">
@@ -69,6 +77,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <br>
             <a href="artists.php">coldplay</a>
             // <a href="albums.php"> a rush of blood to the head</a>
+            <br>
+            <img src="images/play%20button.jpg">
         </div>
         <div class="col">
             <img src="images/bee%20gees%20greatest.jpg">
@@ -78,6 +88,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <br>
             <a href="artists.php">bee gees</a>
             // <a href="albums.php"> bee gees' greatest hits</a>
+            <br>
+            <img src="images/play%20button.jpg">
         </div>
     </div>
 </div>
