@@ -25,15 +25,15 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <div class="container">
         <div class="row">
             <div class="col-sm">
-                <img src="https://images-na.ssl-images-amazon.com/images/I/71BKhn%2BOYRL._SL1425_.jpg">
+                <img src="images/some%20nights.jpg">
                 fun. // some nights
             </div>
             <div class="col-sm">
-                <img src="https://images-na.ssl-images-amazon.com/images/I/61Oz6VUs1fL.jpg">
+                <img src="images/gods%20favorite%20band.jpg">
                 green day // greatest hits: god's favorite band
             </div>
             <div class="col-sm">
-                <img src="https://static.qobuz.com/images/covers/02/05/0073145240502_600.jpg">
+                <img src="images/no%20need%20to%20argue%20album.jpg">
                 the cranberries // no need to argue
             </div>
         </div>
