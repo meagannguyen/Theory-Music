@@ -79,17 +79,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Validate phone number
         $sql = "SELECT 'ID' FROM account WHERE 'phone_number' = :phone_number";
-        if (empty(trim($_POST["phone number"]))) {
+        if (empty(trim($_POST["phone_number"]))) {
             $phone_number_err = "please enter a phone number";
         } else {
             if ($stmt = $conn->prepare($sql)) {
                 $stmt->bindParam(":phone", $param_phone_number, PDO::PARAM_STR);
-                $param_phone_number = trim($_POST["phone number"]);
+                $param_phone_number = trim($_POST["phone_number"]);
                 if ($stmt->execute()) {
                     if ($stmt->rowCount() == 1) {
                         $phone_number_err = "this phone number is already being used :(";
                     } else {
-                        $phone_number = trim($_POST["phone number"]);
+                        $phone_number = trim($_POST["phone_number"]);
                     }
                 } else {
                     echo "oops! something went wrong...please try again later";
@@ -227,12 +227,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <div class="form-group">
             <label>password</label>
-            <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
+            <input type="text" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
             <span class="invalid-feedback"><?php echo $password_err; ?></span>
         </div>
         <div class="form-group">
             <label>confirm password</label>
-            <input type="password" name="confirm_password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
+            <input type="text" name="confirm_password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
             <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
         </div>
         <div class="form-group">
