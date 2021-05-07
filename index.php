@@ -245,8 +245,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             <span class="invalid-feedback"><?php echo $billing_address; ?></span>
         </div>
         <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="submit">
-            <input type="reset" class="btn btn-secondary ml-2" value="reset">
+            <input type="submit" class="btn btn-light" value="submit">
+            <input type="reset" class="btn btn-outline-light" value="reset">
         </div>
         <p>already have an account? <a href="login.php">login here</a>!</p>
     </form>

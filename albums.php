@@ -21,7 +21,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <body>
 <h1 class="my-5">albums</h1>
 <p>
-    <a href="welcome.php" class="btn btn-warning">home</a>
+    <a href="welcome.php" class="btn btn-light">home</a>
     <div class="container">
         <div class="row">
             <div class="col-sm">
