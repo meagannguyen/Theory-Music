@@ -125,16 +125,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Validate payment
         if (empty(trim($_POST["payment"]))) {
-            $last_name_err = "please enter your payment option :)";
+            $payment_err = "please enter your payment option :)";
         } else {
-            $last_name = trim($_POST["payment"]);
+            $payment = trim($_POST["payment"]);
         }
 
         // Validate billing address
         if (empty(trim($_POST["billing address"]))) {
-            $last_name_err = "please enter your billing address :)";
+            $billing_address_err = "please enter your billing address :)";
         } else {
-            $last_name = trim($_POST["billing address"]);
+            $billing_address = trim($_POST["billing address"]);
         }
 
         // Check input errors before inserting in database
@@ -206,7 +206,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             <span class="invalid-feedback"><?php echo $last_name; ?></span>
         </div>
         <div class="form-group">
-            <label>email</label>
+            <label>email address</label>
             <input type="email" name="email" class="form-control <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>">
             <span class="invalid-feedback"><?php echo $email; ?></span>
         </div>
