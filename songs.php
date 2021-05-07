@@ -26,7 +26,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <div class="col">
             <img src="images/some%20nights.jpg">
             <br>
-            <h2>we are young <img src="images/play%20button.jpg"></h2>
+            <h2>we are young <img src="images/play.jpg"></h2>
             <br>
             04:10
             <br>
