@@ -24,13 +24,19 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <div class="container">
         <div class="row">
             <div class="col">
-                <h2>fun.</h2>
-                <img src="images/Fun.jpg">
+                fun.
+                <br>
+                <img src="images/fun.jpg">
+                <br>
                 United States
+                <br>
                 7,687,700 followers
+                <br>
                 Fueled by Ramen
+                <br>
                 Albums:
                 <a href="albums.php">some nights</a>
+                <br>
                 Events:
                 <a href="events.php">Fun. Tour</a>
             </div>
