@@ -31,7 +31,7 @@ try {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     // get signed-in username and corresponding playlists
     // $stmt = $conn->prepare("SELECT playlist.name AS playlist, playlist.date_created AS 'date created', playlist.duration AS duration, playlist.num_followers AS followers FROM playlist JOIN account WHERE playlist.account = account.id");
-    $user = $_SESSION['username'];
+    $user = $_POST['username'];
     $stmt = $conn->prepare("SELECT playlist.name AS playlist, playlist.date_created AS 'date created', playlist.duration AS duration, playlist.num_followers AS followers FROM playlist WHERE playlist.account = '.$user'");
     $stmt->execute();
 
