@@ -29,7 +29,7 @@ $database = "project_nguyenm26";
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $stmt = $conn->prepare("SELECT username, name, date_created, duration, num_followers FROM accounts JOIN playlist ON accounts.username = playlist.account");
+    $stmt = $conn->prepare("SELECT username, name, date_created, duration, num_followers FROM account JOIN playlist ON accounts.username = playlist.account");
     $stmt->execute();
 
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
