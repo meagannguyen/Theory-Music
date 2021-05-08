@@ -48,6 +48,10 @@ echo "</table>";
 <head>
     <meta charset="UTF-8">
     <title>theory // artists</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body{ font: 20px 'Courier New'; text-align: center; }
+    </style>
 </head>
 <body>
     <a href="welcome.php" class="btn btn-light btn-lg">home</a>
