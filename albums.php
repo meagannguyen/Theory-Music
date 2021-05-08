@@ -56,9 +56,8 @@ echo "</table>";
     </style>
 </head>
 <body>
-<h1 class="my-5">albums</h1>
 <p>
-    <a href="welcome.php" class="btn btn-light btn-lg btn-block">home</a>
+    <a href="welcome.php" class="btn btn-light btn-lg">home</a>
 </p>
 </body>
-</html> -->
+</html>
