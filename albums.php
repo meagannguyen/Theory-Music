@@ -29,7 +29,7 @@ $database = "project_nguyenm26";
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $stmt = $conn->prepare("SELECT name, release_year, duration, song_quantity, artist FROM albums");
+    $stmt = $conn->prepare("SELECT name, release_year, duration, song_quantity, artist FROM album");
     $stmt->execute();
 
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
