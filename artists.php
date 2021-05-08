@@ -1,7 +1,7 @@
 <?php
 include "connection.php";
 echo "<table style='border: solid 1px black;'>";
-echo "<tr><th>name</th><th>country</th><th>followers</th><th>record label</th>";
+echo "<tr><th>name</th><th>country</th><th>followers</th>";
 
 class TableRows extends RecursiveIteratorIterator {
     function __construct($it) {
@@ -29,7 +29,7 @@ $database = "project_nguyenm26";
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $stmt = $conn->prepare("SELECT name, country, num_followers, record_label FROM artist");
+    $stmt = $conn->prepare("SELECT name, country, num_followers FROM artist");
     $stmt->execute();
 
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
