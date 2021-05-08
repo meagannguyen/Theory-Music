@@ -1,7 +1,7 @@
 <?php
 include "connection.php";
 echo "<table style='border: solid 1px black;'>";
-echo "<tr><th>creator</th><th>name</th><th>date created</th><th>duration</th><th>number of followers</th>";
+echo "<tr><th>playlist</th><th>date created</th><th>duration</th><th>followers</th>";
 
 class TableRows extends RecursiveIteratorIterator {
     function __construct($it) {
@@ -30,7 +30,7 @@ try {
     $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     // get signed-in username and corresponding playlists
-    $stmt = $conn->prepare("SELECT ");
+    $stmt = $conn->prepare("SELECT playlist.name AS playlist, playlist.date_created AS 'date created', playlist.duration AS duration, playlist.num_followers AS followers FROM playlist WHERE playlist.account = account.id");
     $stmt->execute();
 
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
