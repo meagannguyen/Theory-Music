@@ -1,5 +1,12 @@
 <?php
 include "connection.php";
+session_start();
+
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
+
 echo "<table style='border: solid 1px black;'>";
 echo "<tr><th>playlist</th><th>date created</th><th>duration</th><th>followers</th>";
 
@@ -31,10 +38,9 @@ try {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     // get signed-in username and corresponding playlists
     // $stmt = $conn->prepare("SELECT playlist.name AS playlist, playlist.date_created AS 'date created', playlist.duration AS duration, playlist.num_followers AS followers FROM playlist JOIN account WHERE playlist.account = account.id");
-    $user = $_POST['username'];
-    $stmt = $conn->prepare("SELECT playlist.name AS playlist, playlist.date_created AS 'date created', playlist.duration AS duration, playlist.num_followers AS followers FROM playlist WHERE playlist.account = '.$user'");
+    $currentUser = $_SESSION["username"];
+    $stmt = $conn->prepare("SELECT playlist.name AS playlist, playlist.date_created AS 'date created', playlist.duration AS duration, playlist.num_followers AS followers FROM playlist JOIN account WHERE playlist.account = account.ID");
     $stmt->execute();
-
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
     foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
         echo $v;
