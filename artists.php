@@ -29,7 +29,7 @@ $database = "project_nguyenm26";
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $stmt = $conn->prepare("SELECT name, country, num_followers, recordLabel.name FROM artist JOIN recordLabel ON artist.record_label = recordLabel.ID");
+    $stmt = $conn->prepare("SELECT artist.name, artist.country, artist.num_followers, recordLabel.name FROM artist JOIN recordLabel ON artist.record_label = recordLabel.ID");
     $stmt->execute();
 
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
