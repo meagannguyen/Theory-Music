@@ -19,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $username_err = "please enter a username :)";
     } else {
         // Prepared statement
-        $sql = "SELECT 'ID' FROM account WHERE 'username' = :username";
+        $sql = "SELECT ID FROM account WHERE username = :username";
 
         if (isset($conn)) {
             if ($stmt = $conn->prepare($sql)) {
@@ -61,7 +61,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Validate email
-    $sql = "SELECT 'ID' FROM account WHERE 'email' = :email";
+    $sql = "SELECT ID FROM account WHERE email = :email";
     if (empty(trim($_POST["email"]))) {
         $email_err = "please enter an email address :)";
     } elseif (!str_contains(trim($_POST["email"]), '@')) {
@@ -85,7 +85,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         // Validate phone number
-        $sql = "SELECT 'ID' FROM account WHERE 'phone_number' = :phone_number";
+        $sql = "SELECT ID FROM account WHERE phone_number = :phone_number";
         if ($stmt = $conn->prepare($sql)) {
             $stmt->bindParam(":phone_number", $param_phone_number, PDO::PARAM_STR);
             $param_phone_number = trim($_POST["phone_number"]);
