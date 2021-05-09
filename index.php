@@ -60,7 +60,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $email_err = "please enter a valid email address";
     } elseif (!str_contains(trim($_POST["email address"]), '.')) {
         $email_err = "please enter a valid email address";
-    } // if there is a duplicate email address
+    }
     else {
         if ($stmt = $conn->prepare($sql)) {
             $stmt->bindParam(":email", $param_email, PDO::PARAM_STR);
@@ -78,21 +78,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Validate phone number
         $sql = "SELECT 'ID' FROM account WHERE 'phone_number' = :phone_number";
-        if (empty(trim($_POST["phone_number"]))) {
-            $phone_number_err = "please enter a phone number";
-        } else {
-            if ($stmt = $conn->prepare($sql)) {
-                $stmt->bindParam(":phone", $param_phone_number, PDO::PARAM_STR);
-                $param_phone_number = trim($_POST["phone_number"]);
-                if ($stmt->execute()) {
-                    if ($stmt->rowCount() == 1) {
-                        $phone_number_err = "this phone number is already being used :(";
-                    } else {
-                        $phone_number = trim($_POST["phone_number"]);
-                    }
+        if ($stmt = $conn->prepare($sql)) {
+            $stmt->bindParam(":phone", $param_phone_number, PDO::PARAM_STR);
+            $param_phone_number = trim($_POST["phone_number"]);
+            if ($stmt->execute()) {
+                if ($stmt->rowCount() == 1) {
+                    $phone_number_err = "this phone number is already being used :(";
                 } else {
-                    echo "oops! something went wrong...please try again later";
+                    $phone_number = trim($_POST["phone_number"]);
                 }
+            } else {
+                echo "oops! something went wrong...please try again later";
             }
         }
 
