@@ -202,27 +202,27 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="form-group">
             <label>first name</label>
             <input type="text" name="first_name" class="form-control <?php echo (!empty($first_name_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $first_name; ?>">
-            <span class="invalid-feedback"><?php echo $first_name; ?></span>
+            <span class="invalid-feedback"><?php echo $first_name_err; ?></span>
         </div>
         <div class="form-group">
             <label>last name</label>
             <input type="text" name="last_name" class="form-control <?php echo (!empty($last_name_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $last_name; ?>">
-            <span class="invalid-feedback"><?php echo $last_name; ?></span>
+            <span class="invalid-feedback"><?php echo $last_name_err; ?></span>
         </div>
         <div class="form-group">
             <label>email address</label>
             <input type="email" name="email" class="form-control <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>">
-            <span class="invalid-feedback"><?php echo $email; ?></span>
+            <span class="invalid-feedback"><?php echo $email_err; ?></span>
         </div>
         <div class="form-group">
             <label>phone number</label>
             <input type="tel" name="phone_number" class="form-control <?php echo (!empty($phone_number_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $phone_number; ?>">
-            <span class="invalid-feedback"><?php echo $phone_number; ?></span>
+            <span class="invalid-feedback"><?php echo $phone_number_err; ?></span>
         </div>
         <div class="form-group">
             <label>birthday</label>
             <input type="date" name="birthday" class="form-control <?php echo (!empty($birthday_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $birthday; ?>">
-            <span class="invalid-feedback"><?php echo $birthday; ?></span>
+            <span class="invalid-feedback"><?php echo $birthday_err; ?></span>
         </div>
         <div class="form-group">
             <label>username</label>
@@ -242,12 +242,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="form-group">
             <label>payment</label>
             <input type="text" name="payment" class="form-control <?php echo (!empty($payment_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $payment; ?>">
-            <span class="invalid-feedback"><?php echo $payment; ?></span>
+            <span class="invalid-feedback"><?php echo $payment_err; ?></span>
         </div>
         <div class="form-group">
             <label>billing address</label>
             <input type="text" name="billing_address" class="form-control <?php echo (!empty($billing_address_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $billing_address; ?>">
-            <span class="invalid-feedback"><?php echo $billing_address; ?></span>
+            <span class="invalid-feedback"><?php echo $billing_address_err; ?></span>
         </div>
         <div class="form-group">
             <input type="submit" class="btn btn-light" value="submit">
