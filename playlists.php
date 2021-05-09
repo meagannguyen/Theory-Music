@@ -38,12 +38,35 @@ try {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     // get signed-in username and corresponding playlists
     // $stmt = $conn->prepare("SELECT playlist.name AS playlist, playlist.date_created AS 'date created', playlist.duration AS duration, playlist.num_followers AS followers FROM playlist JOIN account WHERE playlist.account = account.id");
-    $currentUser = $_SESSION["username"];
+    /*$currentUser = $_SESSION["username"];
     $sql = $conn->prepare("SELECT ID FROM account WHERE username = :currentUser");
     $sql->bindParam(':currentUser', $currentUser, PDO::PARAM_STR);
     $sql->execute();
     $stmt = $conn->prepare("SELECT playlist.name AS playlist, playlist.date_created AS 'date created', playlist.duration AS duration, playlist.num_followers AS followers FROM playlist WHERE playlist.account = :currentUser");
     $stmt->bindParam(':currentUser', $currentUser, PDO::PARAM_STR);
+    $stmt->execute();*/
+    $currentUser = $_SESSION["username"];
+    $sql = $conn->prepare("SELECT ID FROM account WHERE username = :currentUser");
+    $sql->bindParam(':currentUser', $currentUser, PDO::PARAM_STR);
+    $sql->execute();
+    if ($currentUser = 'michaelscott') {
+        $stmt = $conn->prepare("SELECT playlist.name AS playlist, playlist.date_created AS 'date created', playlist.duration AS duration, playlist.num_followers AS followers FROM playlist WHERE playlist.account = 1");
+    }
+    elseif ($currentUser = 'ultimatesithlord') {
+        $stmt = $conn->prepare("SELECT playlist.name AS playlist, playlist.date_created AS 'date created', playlist.duration AS duration, playlist.num_followers AS followers FROM playlist WHERE playlist.account = 2");
+    }
+    elseif ($currentUser = 'jimhalpert') {
+        $stmt = $conn->prepare("SELECT playlist.name AS playlist, playlist.date_created AS 'date created', playlist.duration AS duration, playlist.num_followers AS followers FROM playlist WHERE playlist.account = 3");
+    }
+    elseif ($currentUser = 'artist4life') {
+        $stmt = $conn->prepare("SELECT playlist.name AS playlist, playlist.date_created AS 'date created', playlist.duration AS duration, playlist.num_followers AS followers FROM playlist WHERE playlist.account = : 4");
+    }
+    elseif ($currentUser = 'narddog') {
+        $stmt = $conn->prepare("SELECT playlist.name AS playlist, playlist.date_created AS 'date created', playlist.duration AS duration, playlist.num_followers AS followers FROM playlist WHERE playlist.account = 5");
+    }
+    else {
+        $stmt = $conn->prepare("SELECT playlist.name AS playlist, playlist.date_created AS 'date created', playlist.duration AS duration, playlist.num_followers AS followers FROM playlist WHERE playlist.account = :currentUser");
+    }
     $stmt->execute();
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
     foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
