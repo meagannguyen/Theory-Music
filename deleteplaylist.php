@@ -18,7 +18,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $playlist_name_err = "please enter a playlist to delete :)";
     } else {
         // Prepared statement
-        $sql = "SELECT name FROM playlist WHERE 'name' = :playlist_name";
+        $sql = "SELECT name FROM playlist WHERE name = :playlist_name";
         if (isset($conn)) {
             if ($stmt = $conn->prepare($sql)) {
                 // Bind variables to the prepared statement as parameters
@@ -30,6 +30,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Attempt to execute the prepared statement
                 if ($stmt->execute()) {
                     $playlist_name = trim($_POST["playlist_name"]);
+                    if ($stmt->rowCount() != 1){
+                        $playlist_name_err = "playlist doesn't exist";
+                    }
                 } else {
                     echo "oops! something went wrong...please try again later";
                 }

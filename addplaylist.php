@@ -18,7 +18,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $playlist_name_err = "please enter a name for your playlist :)";
     } else {
         // Prepared statement
-        $sql = "SELECT account FROM playlist WHERE 'name' = :playlist_name";
+        $sql = "SELECT account FROM playlist WHERE name = :playlist_name";
 
         if (isset($conn)) {
             if ($stmt = $conn->prepare($sql)) {
