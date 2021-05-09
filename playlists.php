@@ -49,7 +49,7 @@ try {
     $result = $sql->fetchAll(PDO::FETCH_OBJ);
     console_log($result);*/
     $stmt = $conn->prepare("SELECT playlist.name AS playlist, playlist.date_created AS 'date created', playlist.duration AS duration, playlist.num_followers AS followers FROM playlist WHERE playlist.account = (SELECT ID from account WHERE username = $currentUser)");
-    $stmt->bindParam(':result', $result, PDO::PARAM_STR);
+    //$stmt->bindParam(':result', $result, PDO::PARAM_STR);
     $stmt->execute();
 //    $sql = "SELECT ID FROM account WHERE username = :currentUser";
 //    $stmt = $conn->prepare($sql);
