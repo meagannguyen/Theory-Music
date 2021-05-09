@@ -64,5 +64,6 @@ echo "</table>";
 <body>
 <a href="welcome.php" class="btn btn-light btn-lg">home</a>
 <a href="addplaylist.php" class="btn btn-light btn-lg">add</a>
+<a href="deleteplaylist.php" class="btn btn-light btn-lg">delete</a>
 </body>
 </html>
