@@ -92,7 +92,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="form-group">
             <label>playlist name</label>
             <input type="text" name="playlist_name" class="form-control <?php echo (!empty($playlist_name_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $playlist_name; ?>">
-            <span class="invalid-feedback"><?php echo $playlist_name; ?></span>
+            <span class="invalid-feedback"><?php echo $playlist_name_err; ?></span>
         </div>
         <div class="form-group">
             <input type="submit" class="btn btn-light" value="submit">
