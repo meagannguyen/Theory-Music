@@ -73,7 +73,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 if (empty(trim($_POST["last_name"]))) {
                     $last_name_err = "please enter your last name :)";
                 } else {
-                    $first_name = trim($_POST["last_name"]);
+                    $last_name = trim($_POST["last_name"]);
                 }
             }
             else {
@@ -85,7 +85,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty(trim($_POST["last_name"]))) {
         $last_name_err = "please enter your last name :)";
     } else {
-        $first_name = trim($_POST["last_name"]);
+        $last_name = trim($_POST["last_name"]);
     }
 
     // Validate email
