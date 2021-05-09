@@ -7,6 +7,12 @@ include "connection.php";
 $first_name= $last_name = $email = $phone_number = $username = $password = $confirm_password = $payment = $birthday = $billing_address = "";
 $first_name_err = $last_name_err = $email_err = $phone_number_err = $username_err = $password_err = $confirm_password_err = $payment_err = $birthday_err = $billing_address_err = "";
 
+function console_log( $data ){
+    echo "<script>console.log(";
+    echo $data;
+    echo ") </script>";
+}
+
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty(trim($_POST["username"]))) {
@@ -133,7 +139,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             $billing_address = trim($_POST["billing_address"]);
         }
-
+    console_log($username_err);
         // Check input errors before inserting in database
         if (empty($first_name_err) && empty($last_name_err) && empty($email_err) && empty($phone_number_err) && empty($username_err) && empty($password_err) && empty($confirm_password_err) && empty($birthday_err) && empty($payment_err) && empty($billing_address_err)) {
             // Prepare an insert statement
