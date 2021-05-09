@@ -2,6 +2,12 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 include "connection.php";
+session_start();
+
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: login.php");
+    exit;
+}
 
 $playlist_name = $date_created = $duration = $num_followers = "";
 $playlist_name_err = $date_created_err = "";
