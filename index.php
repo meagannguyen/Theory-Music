@@ -119,10 +119,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
 
+        function getBirthdayYear($p_date) {
+            $date = DateTime::createFromFormat("Y-m-d", $p_date);
+            return $date->format("Y");
+        }
         // Validate birthday
         if (empty(trim($_POST["birthday"]))) {
             $birthday_err = "please enter your birthday :)";
-        } else {
+        } elseif (2021 - getBirthdayYear($_POST["birthday"]) < 13) {
+            $birthday_err = "must be 13 or older to sign up";
+        }
+        else {
             $birthday = trim($_POST["birthday"]);
         }
 
