@@ -25,7 +25,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 // Attempt to execute the prepared statement
                 if ($stmt->execute()) {
-                    if ($stmt->rowCount() == 1) {
+                    if ($stmt->rowCount() != 0) {
                         $username_err = "this username is already taken :(";
                     } else {
                         $username = trim($_POST["username"]);
