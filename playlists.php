@@ -8,7 +8,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 }
 
 echo "<table style='border: solid 1px black;'>";
-echo "<tr><th>playlist</th><th>date created</th><th>duration</th><th>followers</th>";
+echo "<tr><th>playlist</th><th>date created</th><th>duration</th><th>followers</th><th>delete</th>";
 
 class TableRows extends RecursiveIteratorIterator {
     function __construct($it) {
@@ -33,53 +33,13 @@ $username = "nguyenm26";
 $password = "V00873715";
 $database = "project_nguyenm26";
 
-function console_log( $data ){
-    echo '<script>';
-    echo 'console.log('. json_encode( $data ) .')';
-    echo '</script>';
-}
-
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $currentUser = $_SESSION["username"];
-    /*$sql = $conn->prepare("SELECT ID FROM account WHERE username = $currentUser");
-    console_log( $sql );
-    $sql->execute();
-    $result = $sql->fetchAll(PDO::FETCH_OBJ);
-    console_log($result);*/
     $stmt = $conn->prepare("SELECT playlist.name AS playlist, playlist.date_created AS 'date created', playlist.duration AS duration, playlist.num_followers AS followers FROM playlist WHERE playlist.account = (SELECT ID from account WHERE username = :currentUser)");
     $stmt->bindParam(':currentUser', $currentUser, PDO::PARAM_STR);
     $stmt->execute();
-//    $sql = "SELECT ID FROM account WHERE username = :currentUser";
-//    $stmt = $conn->prepare($sql);
-//
-
-//    console_log( $stmt );
-
-    /*$currentUser = $_SESSION["username"];
-    $sql = $conn->prepare("SELECT ID FROM account WHERE username = :currentUser");
-    $sql->bindParam(':currentUser', $currentUser, PDO::PARAM_STR);
-    $sql->execute();
-    if ($currentUser = 'michaelscott') {
-        $stmt = $conn->prepare("SELECT playlist.name AS playlist, playlist.date_created AS 'date created', playlist.duration AS duration, playlist.num_followers AS followers FROM playlist WHERE playlist.account = 1");
-    }
-    elseif ($currentUser = 'ultimatesithlord') {
-        $stmt = $conn->prepare("SELECT playlist.name AS playlist, playlist.date_created AS 'date created', playlist.duration AS duration, playlist.num_followers AS followers FROM playlist WHERE playlist.account = 2");
-    }
-    elseif ($currentUser = 'jimhalpert') {
-        $stmt = $conn->prepare("SELECT playlist.name AS playlist, playlist.date_created AS 'date created', playlist.duration AS duration, playlist.num_followers AS followers FROM playlist WHERE playlist.account = 3");
-    }
-    elseif ($currentUser = 'artist4life') {
-        $stmt = $conn->prepare("SELECT playlist.name AS playlist, playlist.date_created AS 'date created', playlist.duration AS duration, playlist.num_followers AS followers FROM playlist WHERE playlist.account = : 4");
-    }
-    elseif ($currentUser = 'narddog') {
-        $stmt = $conn->prepare("SELECT playlist.name AS playlist, playlist.date_created AS 'date created', playlist.duration AS duration, playlist.num_followers AS followers FROM playlist WHERE playlist.account = 5");
-    }
-    else {
-        $stmt = $conn->prepare("SELECT playlist.name AS playlist, playlist.date_created AS 'date created', playlist.duration AS duration, playlist.num_followers AS followers FROM playlist WHERE playlist.account = :currentUser");
-    }
-    $stmt->execute(); */
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
     foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
         echo $v;
