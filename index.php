@@ -195,6 +195,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 $param_username = $username;
                 $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
                 $param_birthday = $birthday;
+                $param_payment = $payment;
                 $param_billing_address = $billing_address;
 
                 // Attempt to execute the prepared statement
