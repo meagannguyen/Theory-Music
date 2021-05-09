@@ -39,9 +39,11 @@ try {
     // get signed-in username and corresponding playlists
     // $stmt = $conn->prepare("SELECT playlist.name AS playlist, playlist.date_created AS 'date created', playlist.duration AS duration, playlist.num_followers AS followers FROM playlist JOIN account WHERE playlist.account = account.id");
     $currentUser = $_SESSION["username"];
-    $sql = "SELECT ID FROM account WHERE username = :currentUser";
+    $sql = $conn->prepare("SELECT ID FROM account WHERE username = :currentUser");
+    $sql->bindParam(':currentUser', $currentUser, PDO::PARAM_STR);
     $stmt = $conn->prepare("SELECT playlist.name AS playlist, playlist.date_created AS 'date created', playlist.duration AS duration, playlist.num_followers AS followers FROM playlist JOIN account WHERE playlist.account = :sql");
     $stmt->bindParam(':sql', $sql, PDO::PARAM_STR);
+    $sql->execute();
     $stmt->execute();
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
     foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
