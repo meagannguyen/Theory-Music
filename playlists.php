@@ -39,7 +39,7 @@ try {
     // get signed-in username and corresponding playlists
     // $stmt = $conn->prepare("SELECT playlist.name AS playlist, playlist.date_created AS 'date created', playlist.duration AS duration, playlist.num_followers AS followers FROM playlist JOIN account WHERE playlist.account = account.id");
     $currentUser = $_SESSION["username"];
-    $sql = $conn->prepare("SELECT ID FROM account WHERE username = :currentUser");
+    $sql = $conn->prepare("SELECT ID FROM account WHERE username = $currentUser");
     // $sql->bindParam(':currentUser', $currentUser, PDO::PARAM_STR);
     $sql->execute();
     $stmt = $conn->prepare("SELECT playlist.name AS playlist, playlist.date_created AS 'date created', playlist.duration AS duration, playlist.num_followers AS followers FROM playlist WHERE playlist.account = :currentUser");
@@ -60,7 +60,7 @@ echo "</table>";
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>theory // artists</title>
+    <title>theory // playlists</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body{ font: 20px 'Courier New'; text-align: center; }
