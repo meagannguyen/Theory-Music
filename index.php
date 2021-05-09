@@ -135,7 +135,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         // Check input errors before inserting in database
         if (empty($first_name_err) && empty($last_name_err) && empty($email_err) && empty($phone_number_err) && empty($username_err) && empty($password_err) && empty($confirm_password_err) && empty($birthday_err) && empty($payment_err) && empty($billing_address_err)) {
             // Prepare an insert statement
-            $sql = "INSERT INTO account (first_name, last_name, email, phone_number, username, password, birthday, payment, billing_address) VALUES (:first_name, :last_name, :email, :phone_number, :username, :password, :birthday, :payment, :billing_address)";
+            $sql = "INSERT INTO account (first_name, last_name, email, phone_number, username, user_password, birthday, payment, billing_address) VALUES (:first_name, :last_name, :email, :phone_number, :username, :password, :birthday, :payment, :billing_address)";
 
             if ($stmt = $conn->prepare($sql)) {
                 // Bind variables to the prepared statement as parameters
