@@ -42,8 +42,8 @@ try {
     $sql = $conn->prepare("SELECT ID FROM account WHERE username = :currentUser");
     $sql->bindParam(':currentUser', $currentUser, PDO::PARAM_STR);
     $sql->execute();
-    $stmt = $conn->prepare("SELECT playlist.name AS playlist, playlist.date_created AS 'date created', playlist.duration AS duration, playlist.num_followers AS followers FROM playlist WHERE playlist.account = :currentUser");
-    $stmt->bindParam(':currentUser', $currentUser, PDO::PARAM_STR);
+    $stmt = $conn->prepare("SELECT playlist.name AS playlist, playlist.date_created AS 'date created', playlist.duration AS duration, playlist.num_followers AS followers FROM playlist WHERE playlist.account = :sql");
+    $stmt->bindParam(':sql', $sql, PDO::PARAM_STR);
     $stmt->execute();
     /*$currentUser = $_SESSION["username"];
     $sql = $conn->prepare("SELECT ID FROM account WHERE username = :currentUser");

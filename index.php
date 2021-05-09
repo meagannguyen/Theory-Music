@@ -41,24 +41,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Validate first name
-    /* $sql = "SELECT 'ID' FROM account WHERE 'first_name' = :first_name";
-    if (isset($conn)) {
-        if ($stmt = $conn->prepare($sql)) {
-            $stmt->bindParam(":first_name", $param_first_name, PDO::PARAM_STR);
-            $param_first_name = trim($_POST["first_name"]);
-            if ($stmt->execute()) {
-                if (empty(trim($_POST["first_name"]))) {
-                    $first_name_err = "please enter your first name :)";
-                } else {
-                    $first_name = trim($_POST["first_name"]);
-                }
-            }
-            else {
-                echo "oops! something went wrong...please try again later";
-            }
-            unset($stmt);
-        }
-    } */
     if (empty(trim($_POST["first_name"]))) {
         $first_name_err = "please enter your first name :)";
     } else {
@@ -66,24 +48,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Validate last name
-    /*$sql = "SELECT 'ID' FROM account WHERE 'last_name' = :last_name";
-    if (isset($conn)) {
-        if ($stmt = $conn->prepare($sql)) {
-            $stmt->bindParam(":last_name", $param_last_name, PDO::PARAM_STR);
-            $param_last_name = trim($_POST["last_name"]);
-            if ($stmt->execute()) {
-                if (empty(trim($_POST["last_name"]))) {
-                    $last_name_err = "please enter your last name :)";
-                } else {
-                    $last_name = trim($_POST["last_name"]);
-                }
-            }
-            else {
-                echo "oops! something went wrong...please try again later";
-            }
-            unset($stmt);
-        }
-    }*/
     if (empty(trim($_POST["last_name"]))) {
         $last_name_err = "please enter your last name :)";
     } else {
