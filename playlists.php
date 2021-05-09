@@ -47,6 +47,7 @@ try {
     console_log( $sql );
     $sql->execute();
     $result = $sql->fetchAll(PDO::FETCH_OBJ);
+    console_log($result);
     $stmt = $conn->prepare("SELECT playlist.name AS playlist, playlist.date_created AS 'date created', playlist.duration AS duration, playlist.num_followers AS followers FROM playlist WHERE playlist.account = :result");
     $stmt->bindParam(':result', $result, PDO::PARAM_STR);
     $stmt->execute();
