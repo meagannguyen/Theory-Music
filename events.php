@@ -29,7 +29,7 @@ $database = "project_nguyenm26";
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $stmt = $conn->prepare("SELECT artist_event.name, artist.name, artist_event.venue, artist_event.city, artist_event.state, artist_event.country, artist_event.event_date, artist_event.event_time
+    $stmt = $conn->prepare("SELECT artist_event.name AS 'event name', artist.name AS artist, artist_event.venue AS venue, artist_event.city AS city, artist_event.state AS state, artist_event.country AS country, artist_event.event_date AS date, artist_event.event_time AS time
     FROM artist_event JOIN artist ON artist_event.artist = artist.ID");
     $stmt->execute();
 
