@@ -37,7 +37,7 @@ try {
     $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $currentUser = $_SESSION["username"];
-    $stmt = $conn->prepare("SELECT playlist.name AS playlist, playlist.date_created AS date created, playlist.duration AS duration, playlist.num_followers AS followers FROM playlist WHERE playlist.account = (SELECT ID from account WHERE username = :currentUser)");
+    $stmt = $conn->prepare("SELECT playlist.name AS playlist, playlist.date_created AS 'date created', playlist.duration AS duration, playlist.num_followers AS followers FROM playlist WHERE playlist.account = (SELECT ID from account WHERE username = :currentUser)");
     $stmt->bindParam(':currentUser', $currentUser, PDO::PARAM_STR);
     $stmt->execute();
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
