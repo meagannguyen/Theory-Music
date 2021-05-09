@@ -36,12 +36,11 @@ $database = "project_nguyenm26";
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    // get signed-in username and corresponding playlists
-    // $stmt = $conn->prepare("SELECT playlist.name AS playlist, playlist.date_created AS 'date created', playlist.duration AS duration, playlist.num_followers AS followers FROM playlist JOIN account WHERE playlist.account = account.id");
     $currentUser = $_SESSION["username"];
     $sql = $conn->prepare("SELECT ID FROM account WHERE username = :currentUser");
     $sql->bindParam(':currentUser', $currentUser, PDO::PARAM_STR);
     $sql->execute();
+    print $sql;
     $stmt = $conn->prepare("SELECT playlist.name AS playlist, playlist.date_created AS 'date created', playlist.duration AS duration, playlist.num_followers AS followers FROM playlist WHERE playlist.account = :sql");
     $stmt->bindParam(':sql', $sql, PDO::PARAM_STR);
     $stmt->execute();
