@@ -8,7 +8,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 }
 
 echo "<table style='border: solid 1px black;'>";
-echo "<tr><th>playlist</th><th>date created</th><th>duration</th><th>followers</th><th>delete</th>";
+echo "<tr><th>playlist</th><th>date created</th><th>duration</th><th>followers</th>";
 
 class TableRows extends RecursiveIteratorIterator {
     function __construct($it) {
@@ -63,5 +63,6 @@ echo "</table>";
 </head>
 <body>
 <a href="welcome.php" class="btn btn-light btn-lg">home</a>
+<a href="addplaylist.php" class="btn btn-light btn-lg">add</a>
 </body>
 </html>
