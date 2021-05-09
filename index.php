@@ -39,26 +39,26 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Validate first name
-    if (empty(trim($_POST["first name"]))) {
+    if (empty(trim($_POST["first_name"]))) {
         $first_name_err = "please enter your first name :)";
     } else {
-        $first_name = trim($_POST["first name"]);
+        $first_name = trim($_POST["first_name"]);
     }
 
     // Validate last name
-    if (empty(trim($_POST["last name"]))) {
+    if (empty(trim($_POST["last_name"]))) {
         $last_name_err = "please enter your last name :)";
     } else {
-        $last_name = trim($_POST["last name"]);
+        $last_name = trim($_POST["last_name"]);
     }
 
     // Validate email
     $sql = "SELECT 'ID' FROM account WHERE 'email' = :email";
-    if (empty(trim($_POST["email address"]))) {
+    if (empty(trim($_POST["email"]))) {
         $email_err = "please enter an email address :)";
-    } elseif (!str_contains(trim($_POST["email address"]), '@')) {
+    } elseif (!str_contains(trim($_POST["email"]), '@')) {
         $email_err = "please enter a valid email address";
-    } elseif (!str_contains(trim($_POST["email address"]), '.')) {
+    } elseif (!str_contains(trim($_POST["email"]), '.')) {
         $email_err = "please enter a valid email address";
     }
     else {
@@ -79,7 +79,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         // Validate phone number
         $sql = "SELECT 'ID' FROM account WHERE 'phone_number' = :phone_number";
         if ($stmt = $conn->prepare($sql)) {
-            $stmt->bindParam(":phone", $param_phone_number, PDO::PARAM_STR);
+            $stmt->bindParam(":phone_number", $param_phone_number, PDO::PARAM_STR);
             $param_phone_number = trim($_POST["phone_number"]);
             if ($stmt->execute()) {
                 if ($stmt->rowCount() == 1) {
@@ -126,10 +126,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         // Validate billing address
-        if (empty(trim($_POST["billing address"]))) {
+        if (empty(trim($_POST["billing_address"]))) {
             $billing_address_err = "please enter your billing address :)";
         } else {
-            $billing_address = trim($_POST["billing address"]);
+            $billing_address = trim($_POST["billing_address"]);
         }
 
         // Check input errors before inserting in database
