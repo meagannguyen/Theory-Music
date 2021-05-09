@@ -49,7 +49,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         // Check input errors before inserting in database
         if (empty($playlist_name_err)) {
             // Prepare an insert statement
-            $sql = "INSERT INTO playlist (account, name, date_created, duration, num_followers) VALUES ((SELECT ID from account WHERE username = :currentUser), :playlist_name, CURRENT_DATE, 00:00:00, 0)";
+            $sql = "INSERT INTO playlist (account, name, date_created, duration, num_followers) VALUES ((SELECT ID from account WHERE username = :currentUser), :playlist_name, CURRENT_DATE, '00:00:00', 0)";
 
             if ($stmt = $conn->prepare($sql)) {
                 // Bind variables to the prepared statement as parameters
