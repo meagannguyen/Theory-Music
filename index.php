@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 include "connection.php";
 
@@ -178,10 +180,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 $stmt->bindParam(":first_name", $param_first_name, PDO::PARAM_STR);
                 $stmt->bindParam(":last_name", $param_last_name, PDO::PARAM_STR);
                 $stmt->bindParam(":email", $param_email, PDO::PARAM_STR);
-                $stmt->bindParam(":phone_number", $param_phone_number, PDO::PARAM_INT);
+                $stmt->bindParam(":phone_number", $param_phone_number, PDO::PARAM_STR);
                 $stmt->bindParam(":username", $param_username, PDO::PARAM_STR);
                 $stmt->bindParam(":password", $param_password, PDO::PARAM_STR);
-                $stmt->bindParam(":birthday", $param_birthday, PDO::PARAM_DATE);
+                $stmt->bindParam(":birthday", $param_birthday, PDO::PARAM_STR);
                 $stmt->bindParam(":payment", $param_payment, PDO::PARAM_STR);
                 $stmt->bindParam(":billing_address", $param_billing_address, PDO::PARAM_STR);
 
