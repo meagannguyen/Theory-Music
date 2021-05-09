@@ -52,8 +52,8 @@ try {
 //    $sql = "SELECT ID FROM account WHERE username = :currentUser";
 //    $stmt = $conn->prepare($sql);
 //
-    console_log( $stmt );
     console_log( $sql );
+//    console_log( $stmt );
 
     /*$currentUser = $_SESSION["username"];
     $sql = $conn->prepare("SELECT ID FROM account WHERE username = :currentUser");
