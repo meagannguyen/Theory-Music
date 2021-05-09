@@ -62,7 +62,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Attempt to execute the prepared statement
                 if ($stmt->execute()) {
                     // Redirect to login page
-                    header("location: playlist.php");
+                    header("location: playlists.php");
                 } else {
                     echo "oops! something went wrong...please try again later";
                 }
